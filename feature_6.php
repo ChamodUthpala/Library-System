@@ -32,5 +32,40 @@
     </form>
 </div>
 
+<div class="container mt-4">
+    <h2>Assigned Fines</h2>
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Fine ID</th>
+                <th>Member ID</th>
+                <th>Member Name</th>
+                <th>Book Name</th>
+                <th>Fine Amount (LKR)</th>
+                <th>Date Modified</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="fineTableBody">
+            <?php
+            foreach ($assignedFines as $fine) {
+                echo "<tr>";
+                echo "<td>{$fine['fine_id']}</td>";
+                echo "<td>{$fine['member_id']}</td>";
+                echo "<td>Member {$fine['member_id']}</td>"; // Replace with actual member name retrieval logic
+                echo "<td>Book {$fine['book_id']}</td>"; // Replace with actual book name retrieval logic
+                echo "<td>{$fine['fine_amount']}</td>";
+                echo "<td>{$fine['fine_date_modified']}</td>";
+                echo "<td><form method=\"post\" style=\"display:inline;\">
+                        <input type=\"hidden\" name=\"deleteFineID\" value=\"{$fine['fine_id']}\">
+                        <button type=\"submit\" class=\"btn btn-danger\">Delete</button>
+                      </form></td>";
+                echo "</tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
