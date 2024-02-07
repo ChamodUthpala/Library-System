@@ -51,8 +51,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-echo "Connection successful";
-
 if (isset($_POST["deleteFineID"])) {
     $deleteFineID = $_POST["deleteFineID"];
 
@@ -97,7 +95,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-$conn->close();
+
 ?>
 
 <div class="container">
@@ -140,13 +138,42 @@ $conn->close();
             </tr>
         </thead>
         <tbody id="fineTableBody">
-            <?php
+        <?php
             foreach ($assignedFines as $fine) {
                 echo "<tr>";
                 echo "<td>{$fine['fine_id']}</td>";
                 echo "<td>{$fine['member_id']}</td>";
-                echo "<td>Member {$fine['member_id']}</td>";
-                echo "<td>Book {$fine['book_id']}</td>"; 
+                
+                // Retrieve member name using foreign key
+                $memberID = $fine['member_id'];
+                $sqlMember1 = "SELECT first_name FROM member WHERE member_id = '$memberID'";
+                $sqlMember2 = "SELECT last_name FROM member WHERE member_id = '$memberID'";
+                $resultMember1 = $conn->query($sqlMember1);
+                $resultMember2 = $conn->query($sqlMember2);
+                
+                if ($resultMember1->num_rows > 0) {
+                    $rowMember1 = $resultMember1->fetch_assoc();
+                    $rowMember2 = $resultMember2->fetch_assoc();
+                    $memberName1 = $rowMember1['first_name'];
+                    $memberName2 = $rowMember2['last_name'];
+                    echo "<td> {$memberName1} {$memberName2}</td>";
+                } else {
+                    echo "<td>Member Not Found</td>";
+                }
+            
+                // Retrieve book name using foreign key
+                $bookID = $fine['book_id'];
+                $sqlBook = "SELECT book_name FROM book WHERE book_id = '$bookID'";
+                $resultBook = $conn->query($sqlBook);
+                
+                if ($resultBook->num_rows > 0) {
+                    $rowBook = $resultBook->fetch_assoc();
+                    $bookName = $rowBook['book_name'];
+                    echo "<td> {$bookName}</td>";
+                } else {
+                    echo "<td>Book Not Found</td>";
+                }
+            
                 echo "<td>{$fine['fine_amount']}</td>";
                 echo "<td>{$fine['fine_date_modified']}</td>";
                 echo "<td><form method=\"post\" style=\"display:inline;\">
@@ -155,7 +182,9 @@ $conn->close();
                       </form></td>";
                 echo "</tr>";
             }
-            ?>
+
+            $conn->close();
+			?>
 
         </tbody>
     </table>
