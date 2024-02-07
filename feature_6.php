@@ -74,6 +74,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 }
 
+$sqlSelect = "SELECT * FROM fine";
+$result = $conn->query($sqlSelect);
+
+$assignedFines = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $assignedFines[] = $row;
+    }
+}
+
 $conn->close();
 ?>
 
@@ -116,7 +126,28 @@ $conn->close();
                 <th>Action</th>
             </tr>
         </thead>
+        <tbody id="fineTableBody">
+            <?php
+            foreach ($assignedFines as $fine) {
+                echo "<tr>";
+                echo "<td>{$fine['fine_id']}</td>";
+                echo "<td>{$fine['member_id']}</td>";
+                echo "<td>Member {$fine['member_id']}</td>";
+                echo "<td>Book {$fine['book_id']}</td>"; 
+                echo "<td>{$fine['fine_amount']}</td>";
+                echo "<td>{$fine['fine_date_modified']}</td>";
+                echo "<td><form method=\"post\" style=\"display:inline;\">
+                        <input type=\"hidden\" name=\"deleteFineID\" value=\"{$fine['fine_id']}\">
+                        <button type=\"submit\" class=\"btn btn-danger\">Delete</button>
+                      </form></td>";
+                echo "</tr>";
+            }
+            ?>
+
+        </tbody>
     </table>
+
+
 </div>
 
 </body>
