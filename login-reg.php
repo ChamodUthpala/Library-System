@@ -136,7 +136,8 @@ $conn->close();
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             inline-size: 700px;
             margin-inline-start: 200px;
-            margin-left: 50px;
+            margin-left: 180px;
+             
 
         }
 
