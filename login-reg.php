@@ -151,6 +151,151 @@
        
     </form>
 
+    <script>
+        function registerStaff() {
+            var user_id = document.getElementById('user_id').value;
+            var first_name = document.getElementById('first_name').value;
+            var last_name = document.getElementById('last_name').value;
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+
+            // Validate input
+            if (!user_id || !first_name || !last_name || !username || !password || !email) {
+                alert('All fields are required.');
+                return;
+            }
+            var user_idRegex = /^U\d{3}$/;
+            if (!user_idRegex.test(user_id)) {
+                alert('Invalid User ID format. Please use "U" followed by three digits (e.g., U001).');
+                return;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Invalid email format. Please enter a valid email address.');
+                return;
+            }
+
+            if (password.length < 8) {
+                alert('password must be more than 8 characters.');
+                return;
+            }
+
+            // Mock API call (you can replace this with an actual API call)
+            alert('Staff registered successfully:\n\nUserID: ' + user_id + '\nName: ' + first_name + ' ' + last_name + '\nusername: ' + username + '\npassword: ' + password + '\nemail: ' + email);
+
+            // Clear form fields
+            document.getElementById('user_id').value = '';
+            document.getElementById('first_name').value = '';
+            document.getElementById('last_name').value = '';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('email').value = '';
+        }
+
+
+        function editUser(user_id, first_name, last_name, username, password, email) {
+            // Fill in the form fields with the user details
+            document.getElementById('user_id').value = user_id;
+            document.getElementById('first_name').value = first_name;
+            document.getElementById('last_name').value = last_name;
+            document.getElementById('username').value = username;
+            document.getElementById('password').value = password;
+            document.getElementById('email').value = email;
+
+            // Change the form action to indicate that it's an update operation
+            document.getElementById('staffForm').action = 'loginreg.php?edit_user_id=' + user_id;
+
+            // Change the button text and function to indicate an update operation
+            document.querySelector('button[name="submit"]').innerText = 'Update Staff';
+            document.querySelector('button[name="submit"]').onclick = function () {
+                // Implement the logic for updating a user
+                updateUserData(user_id);
+            };
+        }
+
+
+
+
+
+        function updateUserData(user_id) {
+            // Collect updated data from the form
+            var formData = new FormData(document.getElementById('staffForm'));
+
+            // Make an AJAX request to update the user data
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'process_form.php?edit_user_id=' + user_id, true);
+            xhr.onload = function () {
+                // Parse the response JSON
+                var response = JSON.parse(xhr.responseText);
+
+                // Check if the update was successful
+                if (response.success) {
+                    // Update the table content with the new data
+                    updateTable(user_id, response.updatedData);
+                    alert('User data updated successfully!');
+                } else {
+                    alert('Failed to update user data. Please try again.');
+                }
+            };
+            xhr.send(formData);
+        }
+
+        function updateTable(user_id, updatedData) {
+            // Find the row with the matching user_id
+            var row = document.querySelector('tr[data-user-id="' + user_id + '"]');
+
+            // Update the content of the row with the new data
+            row.innerHTML = updatedData;
+
+            // Reset the form action and button text for adding new users
+            document.getElementById('staffForm').action = 'process_form.php';
+            document.querySelector('button[name="submit"]').innerText = 'Register Staff';
+            document.querySelector('button[name="submit"]').onclick = function () {
+                // Implement the logic for registering a new user
+                registerStaff();
+            };
+        }
+
+
+
+     function refreshTable() {
+            // Make an AJAX request to fetch the updated data
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'display_Users.php', true);
+            xhr.onload = function () {
+                // Replace the table content with the updated data
+                document.querySelector('tbody').innerHTML = xhr.responseText;
+            };
+            xhr.send();
+            // Implement the logic to refresh the table or reload the page
+            // You can use additional AJAX to fetch updated data and replace the table content
+            location.reload(); // Simple method to reload the entire page
+        }
+
+        function deleteUserr(user_id) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                // Make an AJAX request to delete the user data
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'loginreg.php?delete_user_id=' + user_id, true);
+                xhr.onload = function () {
+                    // Refresh the table after successful delete
+                    refreshTable();
+                    alert('User data deleted successfully!');
+                };
+                xhr.send();
+            }
+        }
+
+        function refreshTable() {
+            // Implement the logic to refresh the table or reload the page
+            // You can use additional AJAX to fetch updated data and replace the table content
+            location.reload(); // Simple method to reload the entire page
+        }
+       
+    </script>
+
     <br>
     <br>
     <br>
