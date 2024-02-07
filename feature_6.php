@@ -119,7 +119,7 @@ if ($result->num_rows > 0) {
            
         </div>
         <button type="submit" class="btn btn-custom">Assign Fine</button>
-        <button type="reset" class="btn btn-custom" >Clear Data</button>
+        <button type="reset" class="btn btn-custom" style="background-color: #888888">Clear Data</button>
     </form>
 </div>
 
