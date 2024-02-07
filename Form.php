@@ -71,6 +71,61 @@ if (isset($_POST['add_book'])) {
         button:hover {
             background-color: #45a049;
         }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            text-align: center;
+            ;
+        }
+
+        th {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+
+        .action-buttons button {
+            margin-right: 5px;
+            color: black;
+            background-color: #2196F3;
+
+        }
+
+        caption {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </style>
 
     
