@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Management System</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    
+    <style>
+        body {
+            padding: 20px;
+            background-color: #4caf50; /* Background color for the entire body */
+            color: rgb(17, 17, 17); /* Text color for the entire body */
+        }
+
+        .container {
+            background-color: white; /* Background color for containers */
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .btn-custom {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        /* Added a style for error messages */
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
     
@@ -39,7 +68,7 @@
                 <option value="borrowed">Borrowed</option>
                 <option value="available">Available</option>
             </select>
-            
+
         </div>
 
         <button type="button" class="btn btn-custom" onclick="addBorrow()">Add Borrow Details</button>
