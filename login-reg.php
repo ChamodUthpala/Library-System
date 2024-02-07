@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && (isset($_POST['submit']) || isset($
     }
 
     $_SESSION['msg_type'] = "warning";
-    header("Location: loginreg.php");
+    header("Location: login-reg.php");
     exit();
 }
 
@@ -67,7 +67,7 @@ if (isset($_GET['delete_user_id'])) {
     $_SESSION['message'] = "Record has been deleted!";
     $_SESSION['msg_type'] = "danger";
     $stmt->close();
-    header("Location: loginreg.php");
+    header("Location: login-reg.php");
     exit();
 }
 
@@ -100,7 +100,7 @@ if (isset($_POST['update'])) {
     $_SESSION['msg_type'] = "warning";
 
     $stmt->close();
-    header("Location: loginreg.php");
+    header("Location: login-reg.php");
     exit();
 }
 
@@ -232,7 +232,7 @@ $conn->close();
 </head>
 
 <body>
-    <form id="staffForm" action="loginreg.php" method="post">
+    <form id="staffForm" action="login-reg.php" method="post">
         <h1 style="text-align:center;">UOK LIBRARY MANAGEMENT SYSTEM</h1>
          
         <hr>
@@ -323,7 +323,7 @@ $conn->close();
             document.getElementById('email').value = email;
 
             // Change the form action to indicate that it's an update operation
-            document.getElementById('staffForm').action = 'loginreg.php?edit_user_id=' + user_id;
+            document.getElementById('staffForm').action = 'login-reg.php?edit_user_id=' + user_id;
 
             // Change the button text and function to indicate an update operation
             document.querySelector('button[name="submit"]').innerText = 'Update Staff';
@@ -396,7 +396,7 @@ $conn->close();
             if (confirm('Are you sure you want to delete this user?')) {
                 // Make an AJAX request to delete the user data
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', 'loginreg.php?delete_user_id=' + user_id, true);
+                xhr.open('GET', 'login-reg.php?delete_user_id=' + user_id, true);
                 xhr.onload = function () {
                     // Refresh the table after successful delete
                     refreshTable();
