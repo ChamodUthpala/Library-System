@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Staff Registration</title>
-  <head>
-  </head>
+
+</head>
 
 <body>
     <form id="staffForm" action="loginreg.php" method="post">
