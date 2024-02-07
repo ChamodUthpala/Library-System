@@ -11,7 +11,40 @@ if (isset($_POST['add_book'])) {
     $book_name = $_POST['book_name'];
     $category_id = $_POST['book_category'];
 
+
+    // BOOKID FORMAT VALIDATE
+    if (!preg_match('/^B\d{3}$/', $book_id)) {
+        echo '<script>alert("Invalid Book ID format. Please use \'B\' followed by three digits (e.g., B001).");</script>';
+        echo '<script>window.location.href = window.location.href;</script>';
+        exit;
+    }
+
+    // Check if the book ID already exists in the database
+    $check_query = "SELECT * FROM book WHERE book_id='$book_id'";
+    $check_result = mysqli_query($connection, $check_query);
+
+    if (mysqli_num_rows($check_result) > 0) {
+
+        // If the book ID exist, update the existing record
+        $update_query = "UPDATE book SET book_name='$book_name', category_id='$category_id' WHERE book_id='$book_id'";
+        if (mysqli_query($connection, $update_query)) {
+            echo '<script>alert("Book updated successfully!");</script>';
+        } else {
+            echo '<script>alert("Error updating book: ' . mysqli_error($connection) . '");</script>';
+        }
+
+    } else {
+        // If the book ID doesn't exist, insert a new record
+        $insert_query = "INSERT INTO book (book_id, book_name, category_id) VALUES ('$book_id', '$book_name', '$category_id')";
+        if (mysqli_query($connection, $insert_query)) {
+            echo '<script>alert("Book added successfully!");</script>';
+        } else {
+            echo '<script>alert("Error adding book: ' . mysqli_error($connection) . '");</script>';
+        }
+    }
 }
+
+
 
 ?>
 
@@ -97,12 +130,9 @@ if (isset($_POST['add_book'])) {
             font-size: 20px;
             font-weight: 700;
         }
+    </style>
 
-
-
-        </style>
-
-<script>
+    <script>
         function registerBook() {
             var bookId = document.getElementById('book_id').value;
             var bookName = document.getElementById('book_name').value;
@@ -149,23 +179,23 @@ if (isset($_POST['add_book'])) {
 
     </script>
 
-    
+
 
 </head>
 
 <body>
-    
-        <form id="bookForm" method="post" action="">
-            <h2>Books Registration</h2>
-            <label for="book_id">Book ID:</label>
-            <input type="text" id="book_id" name="book_id" required>
-    
-            <label for="book_name">Book Name:</label>
-            <input type="text" id="book_name" name="book_name" required>
-    
-            <label for="book_category">Book Category:</label>
-            <select name="book_category" required>
-    
+
+    <form id="bookForm" method="post" action="">
+        <h2>Books Registration</h2>
+        <label for="book_id">Book ID:</label>
+        <input type="text" id="book_id" name="book_id" required>
+
+        <label for="book_name">Book Name:</label>
+        <input type="text" id="book_name" name="book_name" required>
+
+        <label for="book_category">Book Category:</label>
+        <select name="book_category" required>
+
             <?php
             $category_query = "SELECT * FROM bookcategory";
             $category_query_run = mysqli_query($connection, $category_query);
@@ -237,4 +267,5 @@ if (isset($_POST['add_book'])) {
 
 
 </body>
+
 </html>
