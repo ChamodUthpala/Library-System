@@ -53,6 +53,27 @@ if ($conn->connect_error) {
 
 echo "Connection successful";
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if the required keys are present in the $_POST array
+    if (isset($_POST["fineID"], $_POST["memberID"], $_POST["bookID"], $_POST["fineAmount"])) {
+        // Process the form data and insert into the database
+        $fineID = $_POST["fineID"];
+        $memberID = $_POST["memberID"];
+        $bookID = $_POST["bookID"];
+        $fineAmount = $_POST["fineAmount"];
+
+    // Insert data into the fine table
+    $sqlInsert = "INSERT INTO fine (fine_id, book_id, member_id, fine_amount, fine_date_modified) 
+                  VALUES ('$fineID', '$bookID', '$memberID', '$fineAmount', NOW())";
+
+    if ($conn->query($sqlInsert) === TRUE) {
+        echo "Fine assigned successfully.";
+    } else {
+        echo "Error assigning fine: " . $conn->error;
+    }
+}
+}
+
 $conn->close();
 ?>
 
