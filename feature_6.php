@@ -176,10 +176,23 @@ if ($result->num_rows > 0) {
             
                 echo "<td>{$fine['fine_amount']}</td>";
                 echo "<td>{$fine['fine_date_modified']}</td>";
-                echo "<td><form method=\"post\" style=\"display:inline;\">
-                        <input type=\"hidden\" name=\"deleteFineID\" value=\"{$fine['fine_id']}\">
-                        <button type=\"submit\" class=\"btn btn-danger\">Delete</button>
-                      </form></td>";
+                
+                // Update button (you can link it to an update page or form)
+                echo "<td>
+                        <form action=\"edit_page.php\" method=\"post\" style=\"display:inline;\">
+                            <input type=\"hidden\" name=\"updateFineID\" value=\"{$fine['fine_id']}\">
+                            <button type=\"submit\" class=\"btn btn-primary\">Edit</button>
+                        </form>
+                      </td>";
+                                      
+                // Delete button
+                echo "<td>
+                        <form method=\"post\" style=\"display:inline;\">
+                            <input type=\"hidden\" name=\"deleteFineID\" value=\"{$fine['fine_id']}\">
+                            <button type=\"submit\" class=\"btn btn-danger\">Delete</button>
+                        </form>
+                      </td>";
+
                 echo "</tr>";
             }
 
