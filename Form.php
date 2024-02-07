@@ -102,5 +102,63 @@ if (isset($_POST['add_book'])) {
 
         <button type="submit" name="add_book" onclick="registerBook()">Register Book</button>
     </form>
+
+    <table id="bookTable">
+        <thead>
+            <caption>Book Details</caption>
+            <tr>
+
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Book Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $database = "library_system";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $database);
+
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+
+            $sql = "SELECT b.book_id, b.book_name, bc.category_Name FROM book b
+            INNER JOIN bookcategory bc ON b.category_id = bc.category_id";
+
+
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["book_id"] . "</td>";
+                    echo "<td>" . $row["book_name"] . "</td>";
+                    echo "<td>" . $row["category_Name"] . "</td>";
+                    echo "<td>";
+                    echo '<button class="edit" onclick="editBook(\'' . $row['book_id'] . '\', \'' . $row['book_name'] . '\', \'' . (isset($row['book_category']) ? $row['book_category'] : '') . '\')">Edit</button>&nbsp;&nbsp;';
+                    echo '<button class="delete" onclick="deleteBook(\'' . $row['book_id'] . '\')">Delete</button>';
+                    echo "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+
+            ?>
+        </tbody>
+    </table>
+
+
+
+
 </body>
 </html>
