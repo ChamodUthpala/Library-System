@@ -100,33 +100,54 @@ if (isset($_POST['add_book'])) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </style>
+
+<script>
+        function registerBook() {
+            var bookId = document.getElementById('book_id').value;
+            var bookName = document.getElementById('book_name').value;
+            var bookCategory = document.getElementById('book_category').value;
+
+
+            // Add a new row to the table
+            var table = document.getElementById('bookTable').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow(table.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+
+            cell1.innerHTML = bookId;
+            cell2.innerHTML = bookName;
+            cell3.innerHTML = bookCategory;
+            cell4.innerHTML = '<div class="action-buttons"><button onclick="editBook(this)">Edit</button><button onclick="deleteBook(this)">Delete</button></div>';
+
+            // Clear form fields
+            document.getElementById('book_id').value = '';
+            document.getElementById('book_name').value = '';
+            document.getElementById('book_category').value = 'Sci fi'; // Reset to default category
+
+            document.getElementById('bookForm').submit();
+
+        }
+
+
+        function editBook(bookId, bookName, bookCategory) {
+            document.getElementById('book_id').value = bookId;
+            document.getElementById('book_name').value = bookName;
+            document.getElementById('book_category').value = bookCategory;
+
+
+        }
+
+        function deleteBook(bookId) {
+            var confirmDelete = confirm('Are you sure you want to delete this book?');
+            if (confirmDelete) {
+                window.location.href = 'delete_book.php?book_id=' + bookId;
+            }
+        }
+
+    </script>
 
     
 
