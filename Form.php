@@ -55,6 +55,7 @@ if (isset($_POST['add_book'])) {
 <head>
 
     <title>Book Registration</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -103,6 +104,14 @@ if (isset($_POST['add_book'])) {
 
         button:hover {
             background-color: #45a049;
+        }
+
+        table {
+            width: 800px;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+
         }
 
         th,
