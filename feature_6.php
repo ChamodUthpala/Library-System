@@ -53,6 +53,19 @@ if ($conn->connect_error) {
 
 echo "Connection successful";
 
+if (isset($_POST["deleteFineID"])) {
+    $deleteFineID = $_POST["deleteFineID"];
+
+    // Delete fine record from the fine table
+    $sqlDelete = "DELETE FROM fine WHERE fine_id = '$deleteFineID'";
+
+    if ($conn->query($sqlDelete) === TRUE) {
+        echo "Fine deleted successfully.";
+    } else {
+        echo "Error deleting fine: " . $conn->error;
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the required keys are present in the $_POST array
     if (isset($_POST["fineID"], $_POST["memberID"], $_POST["bookID"], $_POST["fineAmount"])) {
