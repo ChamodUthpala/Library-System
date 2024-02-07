@@ -1,3 +1,48 @@
+<?php
+session_start();
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "library_test";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_POST['login'])) {
+    $login_username = mysqli_real_escape_string($conn, $_POST['login_username']);
+    $login_password = mysqli_real_escape_string($conn, $_POST['login_password']);
+
+    // Validate login credentials
+    $query = "SELECT * FROM user WHERE username='$login_username' AND password='$login_password'";
+    $result = $conn->query($query);
+
+    if ($result->num_rows == 1) {
+        // Login successful, set session variables or perform any other actions
+        $_SESSION['username'] = $login_username;
+        // Redirect to the dashboard after successful login
+        header("Location: User/dashboard.html");
+        exit();
+    } else {
+        // Login failed, display an error message or redirect to the login page
+        $_SESSION['login_error'] = "Invalid username or password";
+        header("Location: login.php");
+        exit();
+    }
+}
+
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
