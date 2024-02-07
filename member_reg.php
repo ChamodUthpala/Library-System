@@ -1,3 +1,26 @@
+<?php
+// Starting the session at the beginning 
+session_start();
+
+// Setting error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "library_test";
+
+// Creating the connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Checking the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
