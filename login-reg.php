@@ -5,6 +5,117 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Staff Registration</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4caf50;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            block-size: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            inline-size: 700px;
+            margin-inline-start: 200px;
+            margin-left: 50px;
+
+        }
+
+        label {
+            display: block;
+            margin-block-end: 8px;
+        }
+
+        input {
+            inline-size: 100%;
+            padding: 8px;
+            margin-block-end: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            inline-size: 100%;
+            block-size: 40px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: block;
+            margin-block-start: 20px;
+            text-align: center;
+            color: #333;
+            text-decoration: none;
+        }
+
+        table {
+            inline-size: 100%;
+            border-collapse: collapse;
+            margin-block-start: 10px;
+            background-color: white;
+
+        }
+
+        th,
+        td {
+            padding: 30px;
+            text-align: start;
+            border-block-end: 1px solid black;
+            height:8px;
+
+        }
+
+        th {
+            background-color: black;
+            color: white;
+            font-size: 15px;
+            height:8px;
+            text-align:center;
+        }
+
+        th:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .edit,
+        .delete {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 8px;
+            border: none;
+            /* Remove borders */
+            cursor: pointer;
+        }
+
+        .container-table {
+            max-inline-size: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        hr.new {
+            border: 2px solid green;
+            border-radius: 5px;
+}
+
+       
+    </style>
 
 </head>
 
