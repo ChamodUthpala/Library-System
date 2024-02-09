@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateFineID"])) {
 
         <div class="container">
             <h2>Update Fine</h2>
-            <form method="post" action="process_update.php" action ="feature6.2hlml.php">
+            <form method="post" action="update_edit.php" action ="feature6.2hlml.php">
                 <div class="form-group">
                     <label for="fineID">Fine ID:</label>
                     <input type="text" class="form-control" id="fineID" name="fineID" value="<?= $fineID ?>" readonly>
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateFineID"])) {
         <script>
             document.getElementById('updateFineButton').addEventListener('click', function() {
             // Use window.location.href to navigate to feature6.2html.php
-            window.location.href = 'feature6.2html.php';
+            window.location.href = 'update_edit.php';
             });
         </script>
         </body>
