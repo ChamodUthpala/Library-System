@@ -174,6 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (isset($_POST["deleteFineID"])) {
         $deleteFineID = $_POST["deleteFineID"];
 
+        
         // Delete record from the fine table
         $sqlDelete = "DELETE FROM fine WHERE fine_id = '$deleteFineID'";
 
@@ -330,11 +331,12 @@ if ($result->num_rows > 0) {
 
                 // Delete button
                 echo "<td>
-                        <form method=\"post\" style=\"display:inline;\">
+                        <form method=\"post\" style=\"display:inline;\" onsubmit=\"return confirm('Are you sure you want to delete this fine?');\">
                             <input type=\"hidden\" name=\"deleteFineID\" value=\"{$fine['fine_id']}\">
                             <button type=\"submit\" class=\"btn btn-danger\" name=\"deleteButton\">Delete</button>
                         </form>
-                      </td>";
+                    </td>";
+
 
                 echo "</tr>";
             }
