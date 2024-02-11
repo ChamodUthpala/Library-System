@@ -78,12 +78,12 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "assignment";
+$dbname = "library_system";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    //die("Connection failed: " . $conn->connect_error);
 }
 
 
@@ -109,15 +109,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["assignFineButton"])) {
                           VALUES ('$fineID', '$bookID', '$memberID', '$fineAmount', NOW())";
 
                 if ($conn->query($sqlInsert) === TRUE) {
-                    echo "Fine assigned successfully.";
+                   // echo "Fine assigned successfully.";
+                    echo " <script>window.alert(\"Fine assigned successfully.\") </script>";
                 } else {
-                    echo "Error assigning fine: " . $conn->error;
+                    //echo "Error assigning fine: " . $conn->error;
+                    echo " <script>window.alert(\"Error assigning fine:\") </script>";
                 }
             }else{
-                echo " Assign Fine Ammount between 2 - 500";
+                //echo " Assign Fine Ammount between 2 - 500";
+                echo " <script>window.alert(\"Assign Fine Ammount between 2 - 500\") </script>";
+
             }
         } else {
-            echo "Error assigning fine: Book not found.";
+            //echo "Error assigning fine: Book not found.";
+            echo " <script>window.alert(\"Error assigning fine: Book not found.\") </script>";
+
         }
     }
 }
@@ -172,9 +178,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sqlDelete = "DELETE FROM fine WHERE fine_id = '$deleteFineID'";
 
         if ($conn->query($sqlDelete) === TRUE) {
-            echo "Fine deleted successfully.";
+           // echo "Fine deleted successfully.";
+            echo " <script>window.alert(\"Fine deleted successfully.\") </script>";
+
         } else {
-            echo "Error deleting fine: " . $conn->error;
+            echo " <script>window.alert(\"Error assigning fine: Book not found.\") </script>";
+           // echo "Error deleting fine: " . $conn->error;
         }
     } else {
 
@@ -197,18 +206,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sqlUpdate = "UPDATE fine SET member_id = '$memberID', book_id = '$bookID', fine_amount = '$fineAmount', fine_date_modified = NOW() WHERE fine_id = '$fineID'";
                 
                 if ($conn->query($sqlUpdate) === TRUE) {
-                    echo "Fine updated successfully.";
+                    //echo "Fine updated successfully.";
+                    echo " <script>window.alert(\"Fine updated successfully.\") </script>";
+
                 } else {
-                    echo "Error updating fine: " . $conn->error;
+                    echo " <script>window.alert(\"Error updating fine: \") </script>";
+                    //echo "Error updating fine: " . $conn->error;
                 }
             }else{
-                echo " Assign Fine Ammount between 2 - 500";
+                //echo " Assign Fine Ammount between 2 - 500";
+                echo " <script>window.alert(\"Assign Fine Ammount between 2 - 500\") </script>";
+
             }
             } else {
-                echo "Error updating fine: Fine not found.";
+               // echo "Error updating fine: Fine not found.";
+                echo " <script>window.alert(\"Error updating fine: Fine not found.\") </script>";
+
             }
         } else {
-            echo "Error assigning fine: Book not found.";
+           // echo "Error assigning fine: Book not found.";
+            echo " <script>window.alert(\"Error assigning fine: Book not found.\") </script>";
+
         }
     }
 }
