@@ -31,9 +31,15 @@
             color: red;
             margin-top: 5px;
         }
+
         h2{
             text-align: center;
         }
+
+        td,th {
+            text-align: center;
+        }
+
     </style>
 
 <script>
