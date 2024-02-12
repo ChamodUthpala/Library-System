@@ -17,6 +17,38 @@ if ($conn->connect_error) {
 $borrowID = $bookID = $memberID = $borrowStatus = "";
 $error_message = $success_message = "";
 
+// Add Borrow Details
+if(isset($_POST['add'])) {
+    $borrowID = $_POST['borrowID'];
+    $bookID = $_POST['bookID'];
+    $memberID = $_POST['memberID'];
+    $borrowStatus = $_POST['borrowStatus'];
+    $borrower_date_modified = date("Y-m-d H:i:s");
+
+    $sql = "INSERT INTO bookborrower (borrow_id, book_id, member_id, borrow_status, borrower_date_modified)
+            VALUES ('$borrowID', '$bookID', '$memberID', '$borrowStatus', '$borrower_date_modified')";
+
+    if ($conn->query($sql) === TRUE) {
+        $success_message = "Borrow details added successfully!";
+    } else {
+        $error_message = "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Delete Borrow Record
+if(isset($_POST['delete'])) {
+    $borrowID = $_POST['delete'];
+    
+    $sql = "DELETE FROM bookborrower WHERE borrow_id='$borrowID'";
+
+    if ($conn->query($sql) === TRUE) {
+        $success_message = "Borrow record deleted successfully!";
+    } else {
+        $error_message = "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+
 
 
 <!DOCTYPE html>
