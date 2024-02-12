@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
         // Login successful, set session variables or perform any other actions
         $_SESSION['username'] = $login_username;
         // Redirect to the dashboard after successful login
-        header("Location: login-reg.php");
+        header("Location: dashboard.php");
         exit();
     } else {
         // Login failed, display an error message or redirect to the login page
