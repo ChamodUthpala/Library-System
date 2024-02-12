@@ -1,3 +1,13 @@
+
+<?php
+// Database connection
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "library_test";
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
