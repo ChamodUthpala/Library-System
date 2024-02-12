@@ -8,6 +8,17 @@ $dbname = "library_test";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Initialize variables
+$borrowID = $bookID = $memberID = $borrowStatus = "";
+$error_message = $success_message = "";
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
