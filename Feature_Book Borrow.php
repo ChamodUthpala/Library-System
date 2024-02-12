@@ -75,7 +75,9 @@ if(isset($_POST['update'])) {
     }
 }
 
-
+// Close database connection
+$conn->close();
+?>
 
 
 <!DOCTYPE html>
