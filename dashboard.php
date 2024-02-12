@@ -6,6 +6,45 @@
     <title>Library Management System Dashboard</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-image: url('dashboard.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #000000;        
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 60px;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+        /*
+        .container1{
+            background-color: #ffffff;
+            background-attachment: fixed;           
+            width: 600px;
+            height: 800px;
+
+        }*/
+
+        .btn-container {
+            text-align: center;
+            color: green;
+        }
+
+        .btn-container button {
+            margin: 10px;
+            width: 400px;
+            height: 80px;
+            font-size:24px;
+        }
+    </style>
 
     </head>
 <body>
