@@ -6,7 +6,7 @@ $username = "your_username";
 $password = "your_password";
 $dbname = "library_test";
 
-
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 <!DOCTYPE html>
 <html lang="en">
