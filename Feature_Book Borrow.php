@@ -48,6 +48,33 @@ if(isset($_POST['delete'])) {
     }
 }
 
+// Fetch Borrow Records
+$sql = "SELECT bookborrower.borrow_id, bookborrower.book_id, bookborrower.borrow_status, bookborrower.borrower_date_modified, member.first_name, member.last_name, book.book_name 
+        FROM bookborrower 
+        INNER JOIN member ON bookborrower.member_id = member.member_id 
+        INNER JOIN book ON bookborrower.book_id = book.book_id";
+
+$result = $conn->query($sql);
+
+// Update Borrow Details
+if(isset($_POST['update'])) {
+    $borrowID = $_POST['borrowID'];
+    $bookID = $_POST['bookID'];
+    $memberID = $_POST['memberID'];
+    $borrowStatus = $_POST['borrowStatus'];
+    $borrower_date_modified = date("Y-m-d H:i:s");
+
+    $sql = "UPDATE bookborrower 
+            SET book_id='$bookID', member_id='$memberID', borrow_status='$borrowStatus', borrower_date_modified='$borrower_date_modified' 
+            WHERE borrow_id='$borrowID'";
+
+    if ($conn->query($sql) === TRUE) {
+        $success_message = "Borrow details updated successfully!";
+    } else {
+        $error_message = "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
 
 
 
