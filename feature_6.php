@@ -10,9 +10,11 @@
 
     <style>
         body {
-            padding: 20px;
-            background-color: #4caf50;
-            color: rgb(17, 17, 17);
+            background-image: url('library.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #000000;
         }
 
         .container {
@@ -34,6 +36,17 @@
 
         h2{
             text-align: center;
+        }
+        
+        .container2{
+            display : flex;
+            justify-content: center;
+        }
+
+        .btnhome{
+            width : 100px;
+            height : 50px;
+            padding : 10px;
         }
 
         td,th {
@@ -68,6 +81,8 @@
                 return true;
             }
         }
+
+        
     </script>
 
 </head>
@@ -264,10 +279,15 @@ if ($result->num_rows > 0) {
             <input type="number" class="form-control" id="fineAmount" name="fineAmount" required oninput="validateFineAmount()">
             <span class="error-message" id="fineAmountError"></span>
         </div>
+        
         <button type="submit" class="btn btn-custom" name="assignFineButton">Assign Fine</button>
         <button type="reset" class="btn btn-custom" style="background-color: #888888">Clear Data</button>
+        
+    
+        
     </form>
 </div>
+
 
 <div class="container mt-4">
     <h2>Assigned Fines</h2>
@@ -280,7 +300,7 @@ if ($result->num_rows > 0) {
                 <th>Book Name</th>
                 <th>Fine Amount (LKR)</th>
                 <th>Date Modified</th>
-                <th>Action</th>
+                <th colspan = "2" >Action</th>
             </tr>
         </thead>
         <tbody id="fineTableBody">
@@ -341,10 +361,16 @@ if ($result->num_rows > 0) {
                 echo "</tr>";
             }
             ?>
-        </tbody>
-    </table>
-</div>
 
+                
+        </tbody>
+        
+    </table>
+    
+</div>
+&nbsp;&nbsp;
+
+<div class = "container2"><a href = "dashboard.php" ><button type="reset" class="btn btn-primary btnhome" id ="return" onclick()="return" >Home</button></a></div>
 </body>
 
 </html>
