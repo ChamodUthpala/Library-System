@@ -56,6 +56,8 @@ if (isset($_POST['add_book'])) {
 
     <title>Book Registration</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,7 +66,6 @@ if (isset($_POST['add_book'])) {
             padding: 0;
             display: grid;
             align-items: center;
-            justify-content: center;
             height: 100vh;
         }
 
@@ -78,7 +79,8 @@ if (isset($_POST['add_book'])) {
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 500px;
-            margin-left: 150px;
+            margin: 0 auto;
+
             ;
         }
 
@@ -114,19 +116,29 @@ if (isset($_POST['add_book'])) {
 
         }
 
+        .btn-custom {
+            background-color: #4caf50;
+            color: white;
+        
+        }
+
+
         th,
         td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
             text-align: center;
             ;
         }
 
-        th {
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
+
+
+
 
         .action-buttons button {
             margin-right: 5px;
@@ -135,10 +147,7 @@ if (isset($_POST['add_book'])) {
 
         }
 
-        caption {
-            font-size: 20px;
-            font-weight: 700;
-        }
+     
     </style>
 
     <script>
@@ -193,17 +202,17 @@ if (isset($_POST['add_book'])) {
 </head>
 
 <body>
-
+<div>
     <form id="bookForm" method="post" action="">
         <h2>Books Registration</h2>
         <label for="book_id">Book ID:</label>
-        <input type="text" id="book_id" name="book_id" required>
+        <input type="text" id="book_id" class="form-control" name="book_id" required>
 
         <label for="book_name">Book Name:</label>
-        <input type="text" id="book_name" name="book_name" required>
+        <input type="text" id="book_name"class="form-control"  name="book_name" required>
 
         <label for="book_category">Book Category:</label>
-        <select name="book_category" required>
+        <select name="book_category" class="form-control" required>
 
             <?php
             $category_query = "SELECT * FROM bookcategory";
@@ -215,18 +224,20 @@ if (isset($_POST['add_book'])) {
 
         </select>
 
-        <button type="submit" name="add_book" onclick="registerBook()">Register Book</button>
+        <button type="submit" name="add_book" class="btn btn-custom" onclick="registerBook()">Register Book</button>
     </form>
+    </div>
 
-    <table id="bookTable">
+<div class="container" >
+    <table id="bookTable"  class="table" >
         <thead>
-            <caption>Book Details</caption>
+            <h2>Book Details</h2>
             <tr>
 
                 <th>Book ID</th>
                 <th>Book Name</th>
                 <th>Book Category</th>
-                <th>Action</th>
+                <th  colspan="2">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -258,8 +269,8 @@ if (isset($_POST['add_book'])) {
                     echo "<td>" . $row["book_name"] . "</td>";
                     echo "<td>" . $row["category_Name"] . "</td>";
                     echo "<td>";
-                    echo '<button class="edit" onclick="editBook(\'' . $row['book_id'] . '\', \'' . $row['book_name'] . '\', \'' . (isset($row['book_category']) ? $row['book_category'] : '') . '\')">Edit</button>&nbsp;&nbsp;';
-                    echo '<button class="delete" onclick="deleteBook(\'' . $row['book_id'] . '\')">Delete</button>';
+                    echo '<button class="btn btn-primary" onclick="editBook(\'' . $row['book_id'] . '\', \'' . $row['book_name'] . '\', \'' . (isset($row['book_category']) ? $row['book_category'] : '') . '\')">Edit</button>&nbsp;&nbsp;';
+                    echo '<button class="btn btn-danger" onclick="deleteBook(\'' . $row['book_id'] . '\')">Delete</button>';
                     echo "</td>";
                     echo "</tr>";
                 }
