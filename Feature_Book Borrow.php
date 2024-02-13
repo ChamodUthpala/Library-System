@@ -94,7 +94,7 @@ $conn->close();
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Custom CSS -->
+    <!-- add style to form -->
 
     <style>
         body {
@@ -114,13 +114,16 @@ $conn->close();
             color: white;
         }
 
-        /* Added a style for error messages */
+        /* style for error messages */
         .error-message {
             color: red;
             margin-top: 5px;
         }
+
     </style>
+
 </head>
+
 <body>
     
 <!-- Add Borrow Details Form -->
@@ -183,19 +186,20 @@ $conn->close();
     </table>
 </div>
 
-<!-- Bootstrap JS and Popper.js (required for Bootstrap components) -->
+<!-- Bootstrap JS and Popper.js  -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<!-- JavaScript -->
+
 
 <script>
-    // Sample data (replace this with dynamic data from the server)
+    // Sample data 
     const borrowRecords = [];
 
     // Function to add borrow details
     function addBorrow() {
+        
         // Fetch input values
         const borrowID = document.getElementById('borrowID').value;
         const bookID = document.getElementById('bookID').value;
