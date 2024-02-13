@@ -137,6 +137,11 @@ if (isset($_POST['add_book'])) {
             margin-top: 20px;
         }
 
+        .container2{
+            display : flex;
+            justify-content: center;
+        }
+
 
 
 
@@ -284,6 +289,11 @@ if (isset($_POST['add_book'])) {
             ?>
         </tbody>
     </table>
+        </div>
+        &nbsp;&nbsp;
+
+<div class = "container2"><a href = "dashboard.php" ><button type="reset" class="btn btn-primary btnhome" id ="return" onclick()="return" >Home</button></a></div>
+
 
 
 
