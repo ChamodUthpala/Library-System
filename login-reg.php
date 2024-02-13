@@ -264,7 +264,7 @@ $conn->close();
         <?php
             if (isset($_SESSION['username'])) {
                 // If the user is logged in, show the logout link or button
-                echo '<a href="login.php"><b>LOG OUT FROM THE SYSTEM</b></a>';
+                echo '<a href="dashboard.php"><b>LOG OUT FROM THE SYSTEM</b></a>';
             }
         ?>
        
