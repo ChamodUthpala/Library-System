@@ -497,5 +497,8 @@ $conn->close();
     </table>
     
   </div>
+  &nbsp;&nbsp;
+
+<div class = "container2"><a href = "dashboard.php" ><button type="reset" class="btn btn-primary btnhome" id ="return" onclick()="return" >Home</button></a></div>
 </body>
 </html>
