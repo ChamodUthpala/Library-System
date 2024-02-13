@@ -270,6 +270,8 @@ if (isset($_POST['add_book'])) {
                     echo "<td>" . $row["category_Name"] . "</td>";
                     echo "<td>";
                     echo '<button class="btn btn-primary" onclick="editBook(\'' . $row['book_id'] . '\', \'' . $row['book_name'] . '\', \'' . (isset($row['book_category']) ? $row['book_category'] : '') . '\')">Edit</button>&nbsp;&nbsp;';
+                    echo "</td>";
+                    echo "<td>";
                     echo '<button class="btn btn-danger" onclick="deleteBook(\'' . $row['book_id'] . '\')">Delete</button>';
                     echo "</td>";
                     echo "</tr>";
