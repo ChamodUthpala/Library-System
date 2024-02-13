@@ -227,6 +227,11 @@ $conn->close();
             border-radius: 5px;
 }
 
+.container2{
+            display : flex;
+            justify-content: center;
+        }
+
        
     </style>
 
