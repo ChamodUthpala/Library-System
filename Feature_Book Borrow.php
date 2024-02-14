@@ -190,6 +190,11 @@ $conn->close();
         <button type="submit" class="btn btn-custom" name="add">Add Borrow Details</button>
     </form>
 
+    <?php if(isset($error_message)) echo "<p class='error-message'>$error_message</p>"; 
+    ?>
+    <?php if(isset($success_message)) echo "<p class='text-success'>$success_message</p>"; 
+    ?>
+
 </div>
 
 <!-- Display Borrow Records Table -->
@@ -207,14 +212,45 @@ $conn->close();
             </tr>
         </thead>
 
-        <tbody id="borrowTableBody">
-            <!-- Borrow records will be displayed here dynamically -->
+        <tbody> 
+        
+            <?php
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>".$row["book_id"]."</td>
+                            <td>".$row["first_name"]." ".$row["last_name"]."</td>
+                            <td>".$row["book_name"]."</td>
+                            <td>".$row["borrow_status"]."</td>
+                            <td>".$row["borrower_date_modified"]."</td>
+                            <td>
+                                <form method='post'>
+                                    <button type='submit' class='btn btn-danger' name='delete' value='".$row["borrow_id"]."'>Delete</button>
+                                </form>
+                                <a href='?edit=".$row["borrow_id"]."' class='btn btn-primary'>Edit</a>
+                            </td>
+                        </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='8'>No records found</td></tr>";
+            }
+            ?>
+        
         </tbody>
     </table>
 </div>
 
 
 <!-- Update Borrow Details Form -->
+
+<?php
+if(isset($_GET['edit'])) {
+    $borrowID = $_GET['edit'];
+    $sql = "SELECT * FROM bookborrower WHERE borrow_id='$borrowID'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+?>
 
 <div class="container mt-4">
     <h2>Update Borrow Details</h2>
@@ -238,6 +274,12 @@ $conn->close();
         <button type="submit" class="btn btn-primary" name="update">Update Borrow Details</button>
     </form>
 </div>
+<?php
+    }
+}
+?>
+
+
 
 <!-- Bootstrap JS and Popper.js  -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
