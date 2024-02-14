@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include 'db_config.php';
+include 'DB_config.php';
 ?>
 
 
