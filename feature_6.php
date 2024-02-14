@@ -264,7 +264,7 @@ if ($result->num_rows > 0) {
     <form method="post" action="">
         <div class="form-group">
             <label for="fineID">Fine ID:</label>
-            <input type="text" class="form-control" id="fineID" name="fineID" required>
+            <input type="text" class="form-control" id="fineID" name="fineID" pattern="F[0-9]{3}" required>
         </div>
         <div class="form-group">
             <label for="memberID">Member ID:</label>
