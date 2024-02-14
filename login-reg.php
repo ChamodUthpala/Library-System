@@ -143,6 +143,7 @@ $conn->close();
             inline-size: 700px;
             margin-inline-start: 200px;
             margin-left: 170px;
+            margin-right:170px;
             
              
 
