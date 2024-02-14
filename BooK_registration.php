@@ -62,6 +62,7 @@ if (isset($_POST['add_book'])) {
         body {
             font-family: Arial, sans-serif;
             background-color: #4caf50;
+            background-image: url('image1.jfif');
             margin: 0;
             padding: 0;
             display: grid;
