@@ -111,10 +111,10 @@ $conn->close();
     <form method="POST" action="login.php" id="login">
         <h2>User Login</h2>
         <label for="login_username">Username:</label>
-        <input type="text" name="login_username" required>
+        <input type="text" name="login_username" class="form-control" required>
 
         <label for="login_password">Password:</label>
-        <input type="password" name="login_password" required minlength="8">
+        <input type="password" name="login_password" class="form-control" required minlength="8">
 
         <button type="submit" name="login">Login</button>
     </form>
