@@ -61,8 +61,10 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+    
 
-<head>
+<head>]
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -135,6 +137,13 @@ $conn->close();
             /* Remove borders */
             cursor: pointer;
         }
+        h2{
+            text-align:center;
+        }
+        .container1 {
+            text-align: center;
+    
+        }
     </style>
 </head>
 
@@ -154,8 +163,10 @@ $conn->close();
             <input type="date" class="form-control" id="date_modified" name="date_modified" required value="<?php echo $date_modified; ?>">
 
             <br><br>
+            <div class="container1">
 
             <button type="submit" name="submit">Update</button>
+            </div>
         </form>
     </div>
 </body>
