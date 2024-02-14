@@ -119,7 +119,7 @@ $conn->close();
 <body>
     <form method="POST" action="login.php" id="login">
          
-        <h4><i><b>Welcome to your literary journey</b></i></h4>
+        <h4><i><b>"Welcome to your literary journey"</b></i></h4>
         <h5>User Login</h5>
         <hr class="new5">
         <label for="login_username">Username:</label>
