@@ -142,16 +142,16 @@ $conn->close();
     <div class="container">
         <h2>Edit Book Category</h2>
         <form action="" method="post">
-            <input type="hidden" name="category_id" value="<?php echo $category_id; ?>">
+            <input type="hidden"  name="category_id" value="<?php echo $category_id; ?>">
 
             <label for="new_category_id">New Category ID:</label>
-            <input type="text" id="new_category_id" name="new_category_id" pattern="C[0-9]{3}" title="Enter a valid Category ID (e.g., C001)" required value="<?php echo $category_id; ?>">
+            <input type="text" class="form-control" id="new_category_id" name="new_category_id" pattern="C[0-9]{3}" title="Enter a valid Category ID (e.g., C001)" required value="<?php echo $category_id; ?>">
 
             <label for="category_Name">Category Name:</label>
-            <input type="text" id="category_Name" name="category_Name" required value="<?php echo $category_Name; ?>">
+            <input type="text" class="form-control" id="category_Name" name="category_Name" required value="<?php echo $category_Name; ?>">
 
             <label for="date_modified">Date modified:</label>
-            <input type="date" id="date_modified" name="date_modified" required value="<?php echo $date_modified; ?>">
+            <input type="date" class="form-control" id="date_modified" name="date_modified" required value="<?php echo $date_modified; ?>">
 
             <br><br>
 
