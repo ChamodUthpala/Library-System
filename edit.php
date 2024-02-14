@@ -1,5 +1,5 @@
 <?php
-include 'db_config.php';
+include 'DB_config.php';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Redirect back to index.php
-    header('Location: index.php');
+    header('Location: feature3.php.php');
     exit;
 }
 
