@@ -94,7 +94,8 @@ $conn->close();
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- add style to form -->
+
+    <!-- Add style to form -->
 
     <style>
         body {
@@ -131,37 +132,37 @@ $conn->close();
 
     <h2>Add Borrow Details</h2>
 
-    <form id="addBorrowForm">
+    <form id="addBorrowForm" method="post">
 
         <div class="form-group">
             <label for="borrowID">Borrow ID:</label>
-            <input type="text" class="form-control" id="borrowID" required>
+            <input type="text" class="form-control" id="borrowID" name="borrowID" required>
             <small class="error-message" id="borrowIDError"></small>
         </div>
 
         <div class="form-group">
             <label for="bookID">Book ID:</label>
-            <input type="text" class="form-control" id="bookID" required>
+            <input type="text" class="form-control" id="bookID" name="bookID" required>
             <small class="error-message" id="bookIDError"></small>
         </div>
 
         <div class="form-group">
             <label for="memberID">Member ID:</label>
-            <input type="text" class="form-control" id="memberID" required>
+            <input type="text" class="form-control" id="memberID" name ="memberID" required>
             <small class="error-message" id="memberIDError"></small>
         </div>
 
         <div class="form-group">
             <label for="borrowStatus">Borrow Status:</label>
 
-            <select class="form-control" id="borrowStatus">
+            <select class="form-control" id="borrowStatus" name="borrowStatus">
                 <option value="borrowed">Borrowed</option>
                 <option value="available">Available</option>
             </select>
 
         </div>
 
-        <button type="button" class="btn btn-custom" onclick="addBorrow()">Add Borrow Details</button>
+        <button type="submit" class="btn btn-custom" name="add">Add Borrow Details</button>
     </form>
 
 </div>
@@ -180,10 +181,37 @@ $conn->close();
                 <th>Action</th>
             </tr>
         </thead>
+
         <tbody id="borrowTableBody">
             <!-- Borrow records will be displayed here dynamically -->
         </tbody>
     </table>
+</div>
+
+
+<!-- Update Borrow Details Form -->
+
+<div class="container mt-4">
+    <h2>Update Borrow Details</h2>
+    <form method="post">
+        <input type="hidden" name="borrowID" value="<?php echo $row['borrow_id']; ?>">
+        <div class="form-group">
+            <label for="bookID">Book ID:</label>
+            <input type="text" class="form-control" id="bookID" name="bookID" value="<?php echo $row['book_id']; ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="memberID">Member ID:</label>
+            <input type="text" class="form-control" id="memberID" name="memberID" value="<?php echo $row['member_id']; ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="borrowStatus">Borrow Status:</label>
+            <select class="form-control" id="borrowStatus" name="borrowStatus">
+                <option value="borrowed" <?php if($row['borrow_status'] == 'borrowed') echo 'selected'; ?>>Borrowed</option>
+                <option value="available" <?php if($row['borrow_status'] == 'available') echo 'selected'; ?>>Available</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" name="update">Update Borrow Details</button>
+    </form>
 </div>
 
 <!-- Bootstrap JS and Popper.js  -->
