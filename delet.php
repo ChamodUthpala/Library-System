@@ -1,5 +1,5 @@
 <?php
-include 'db_config.php';
+include 'DB_config.php';
 
 if (isset($_GET['delete_category_id'])) {
     $deleteCategoryId = $_GET['delete_category_id'];
@@ -15,4 +15,4 @@ if (isset($_GET['delete_category_id'])) {
 }
 
 $conn->close();
-header('Location: index.php');
+header('Location: feature3.php');
