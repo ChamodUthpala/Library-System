@@ -25,6 +25,23 @@ if(isset($_POST['add'])) {
     $borrowStatus = $_POST['borrowStatus'];
     $borrower_date_modified = date("Y-m-d H:i:s");
 
+    
+// Validation for ID format
+    
+
+if (!preg_match("/^BR[0-9]{3}$/", $borrowID)) {
+    $error_message .= "Borrow ID should be in the format BR001.<br>";
+}
+
+if (!preg_match("/^B[0-9]{3}$/", $bookID)) {
+    $error_message .= "Book ID should be in the format B001.<br>";
+}
+
+if (!preg_match("/^M[0-9]{3}$/", $memberID)) {
+    $error_message .= "Member ID should be in the format M001.<br>";
+}
+
+if (empty($error_message)) {
     $sql = "INSERT INTO bookborrower (borrow_id, book_id, member_id, borrow_status, borrower_date_modified)
             VALUES ('$borrowID', '$bookID', '$memberID', '$borrowStatus', '$borrower_date_modified')";
 
@@ -33,33 +50,10 @@ if(isset($_POST['add'])) {
     } else {
         $error_message = "Error: " . $sql . "<br>" . $conn->error;
     }
-
-
-    // Validation for ID format
-    
-
-    if (!preg_match("/^BR[0-9]{3}$/", $borrowID)) {
-        $error_message .= "Borrow ID should be in the format BR001.<br>";
-    }
-    if (!preg_match("/^B[0-9]{3}$/", $bookID)) {
-        $error_message .= "Book ID should be in the format B001.<br>";
-    }
-    if (!preg_match("/^M[0-9]{3}$/", $memberID)) {
-        $error_message .= "Member ID should be in the format M001.<br>";
-    }
-
-    if (empty($error_message)) {
-        $sql = "INSERT INTO bookborrower (borrow_id, book_id, member_id, borrow_status, borrower_date_modified)
-                VALUES ('$borrowID', '$bookID', '$memberID', '$borrowStatus', '$borrower_date_modified')";
-
-        if ($conn->query($sql) === TRUE) {
-            $success_message = "Borrow details added successfully!";
-        } else {
-            $error_message = "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
+}
 }
 
+    
 // Delete Borrow Record
 if(isset($_POST['delete'])) {
     $borrowID = $_POST['delete'];
@@ -203,6 +197,7 @@ $conn->close();
     <table class="table">
         <thead>
             <tr>
+                <th>Borrow ID</th>
                 <th>BookID</th>
                 <th>Member who borrowed</th>
                 <th>Book Name</th>
@@ -218,6 +213,7 @@ $conn->close();
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>
+                            <td>".$row["borrow_id"]."</td>
                             <td>".$row["book_id"]."</td>
                             <td>".$row["first_name"]." ".$row["last_name"]."</td>
                             <td>".$row["book_name"]."</td>
