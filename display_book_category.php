@@ -9,7 +9,7 @@
 
 <body>
     <?php
-    include 'db_config.php';
+    include 'DB_config.php';
 
     $result = $conn->query("SELECT * FROM bookcategory");
 
