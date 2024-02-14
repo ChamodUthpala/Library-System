@@ -246,23 +246,23 @@ $conn->close();
         <h2 style="text-align:center;">Login and User Registration</h2>
          
         <label for="user_id">user_id:</label>
-        <input type="text" name="user_id" id="user_id" required>
+        <input type="text" name="user_id" id="user_id" class="form-control" required>
 
         <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" id="first_name" required>
+        <input type="text" name="first_name" id="first_name" class="form-control" required>
 
         <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" id="last_name" required>
+        <input type="text" name="last_name" id="last_name" class="form-control" required>
 
         <label for="username">username:</label>
-        <input type="text" name="username" id="username" required value="">
+        <input type="text" name="username" id="username" class="form-control" required value="">
 
         <label for="password">password:</label>
-        <input type="password" name="password" id="password" required value="">
+        <input type="password" name="password" id="password" required class="form-control" value="">
 
 
         <label for="email">Email Address:</label>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email" class="form-control" required>
 
         <button type="submit" name="submit">Register Staff</button>
 
