@@ -10,7 +10,7 @@
 
     <style>
         body {
-            background-image: url('library.jpg');
+            background-image: url('image1.jfif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
