@@ -35,7 +35,7 @@
 
         .btn-container {
             text-align: center;
-            color: green;
+            color: #AB5F2F;
         }
 
         .btn-container button {
@@ -44,6 +44,13 @@
             height: 80px;
             font-size:24px;
         }
+        .btn-container button:hover{
+            background-color:#AB5F2F;
+            color:white;
+              
+             
+        }
+
     </style>
 
     </head>
