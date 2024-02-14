@@ -114,6 +114,8 @@ $conn->close();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
     <!-- Add style to form -->
 
     <style>
@@ -162,19 +164,19 @@ $conn->close();
 
         <div class="form-group">
             <label for="borrowID">Borrow ID:</label>
-            <input type="text" class="form-control" id="borrowID" name="borrowID" required>
+            <input type="text" class="form-control" id="borrowID" class="form-control" name="borrowID" required>
             <small class="error-message" id="borrowIDError"></small>
         </div>
 
         <div class="form-group">
             <label for="bookID">Book ID:</label>
-            <input type="text" class="form-control" id="bookID" name="bookID" required>
+            <input type="text" class="form-control" id="bookID" class="form-control" name="bookID" required>
             <small class="error-message" id="bookIDError"></small>
         </div>
 
         <div class="form-group">
             <label for="memberID">Member ID:</label>
-            <input type="text" class="form-control" id="memberID" name ="memberID" required>
+            <input type="text" class="form-control" id="memberID" class="form-control" name ="memberID" required>
             <small class="error-message" id="memberIDError"></small>
         </div>
 
@@ -258,15 +260,16 @@ if(isset($_GET['edit'])) {
 <div class="container mt-4">
     <h2>Update Borrow Details</h2>
     <form method="post">
-        <input type="hidden" name="borrowID" value="<?php echo $row['borrow_id']; ?>">
+        <input type="hidden" name="borrowID" class="form-control"  value="<?php echo $row['borrow_id']; ?>">
         <div class="form-group">
             <label for="bookID">Book ID:</label>
             <input type="text" class="form-control" id="bookID" name="bookID" value="<?php echo $row['book_id']; ?>" required>
         </div>
         <div class="form-group">
             <label for="memberID">Member ID:</label>
-            <input type="text" class="form-control" id="memberID" name="memberID" value="<?php echo $row['member_id']; ?>" required>
+            <input type="text" class="form-control" id="memberID" class="form-control" name="memberID" value="<?php echo $row['member_id']; ?>" required>
         </div>
+
         <div class="form-group">
             <label for="borrowStatus">Borrow Status:</label>
             <select class="form-control" id="borrowStatus" name="borrowStatus">
@@ -274,6 +277,7 @@ if(isset($_GET['edit'])) {
                 <option value="available" <?php if($row['borrow_status'] == 'available') echo 'selected'; ?>>Available</option>
             </select>
         </div>
+        
         <button type="submit" class="btn btn-primary" name="update">Update Borrow Details</button>
     </form>
 </div>
