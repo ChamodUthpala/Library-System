@@ -13,7 +13,11 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            color: #000000;        
+            color: #000000;  
+             
+
+             
+
         }
         h1 {
             color: #ffffff;
