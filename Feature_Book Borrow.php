@@ -96,7 +96,10 @@ if(isset($_POST['update'])) {
 
 
 
-
+ // Close database connection
+ $conn->close();
+ ?>
+ 
 
 
 
@@ -117,7 +120,7 @@ if(isset($_POST['update'])) {
     <style>
           body {
             padding: 20px;
-            background-color: #4caf50; /* Background color for the entire body */
+            background-image: url('image1.jfif');
             color: rgb(17, 17, 17); /* Text color for the entire body */
         }
 
@@ -135,7 +138,8 @@ if(isset($_POST['update'])) {
         }
 
         .btn-custom {
-            background-image: url('image1.jfif');
+
+            background-color: #4caf50;
             color: white;
             text-align: center;
         }
@@ -213,13 +217,13 @@ if(isset($_POST['update'])) {
 </div>
 
 <!-- Display Borrow Records Table -->
+
 <div class="container mt-4">
     <h2>Borrow Records</h2>
     <table class="table">
         <thead>
             <tr>
-                <th>Borrow ID</th>
-                <th>BookID</th>
+                <th>Book ID</th>
                 <th>Member who borrowed</th>
                 <th>Book Name</th>
                 <th>Borrow Status</th>
@@ -227,14 +231,11 @@ if(isset($_POST['update'])) {
                 <th>Action</th>
             </tr>
         </thead>
-
-        <tbody> 
-        
+        <tbody>
             <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>
-                            <td>".$row["borrow_id"]."</td>
                             <td>".$row["book_id"]."</td>
                             <td>".$row["first_name"]." ".$row["last_name"]."</td>
                             <td>".$row["book_name"]."</td>
@@ -244,17 +245,18 @@ if(isset($_POST['update'])) {
                                 <form method='post'>
                                     <button type='submit' class='btn btn-danger' name='delete' value='".$row["borrow_id"]."'>Delete</button>
                                 </form>
-                                <a href='?edit=".$row["borrow_id"]."' class='btn btn-primary'>Edit</a>
+                                <a href='?edit=".$row["book_id"]."' class='btn btn-primary'>Edit</a>
                             </td>
                         </tr>";
                 }
             } else {
-                echo "<tr><td colspan='8'>No records found</td></tr>";
+                echo "<tr><td colspan='6'>No records found</td></tr>";
             }
             ?>
-        
         </tbody>
     </table>
+</div>
+
 </div>
 
 
@@ -262,16 +264,13 @@ if(isset($_POST['update'])) {
 
 <?php
 if(isset($_GET['edit'])) {
-    $borrowID = $_GET['edit'];
-    $sql = "SELECT * FROM bookborrower WHERE borrow_id='$borrowID'";
+    $bookID = $_GET['edit'];
+    $sql = "SELECT * FROM bookborrower WHERE book_id='$bookID'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        // Close database connection
-$conn->close();
-?>
-
+       
 
 <div class="container mt-4">
     <h2>Update Borrow Details</h2>
