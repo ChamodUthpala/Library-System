@@ -96,9 +96,6 @@ if(isset($_POST['update'])) {
 
 
 
- // Close database connection
- $conn->close();
- ?>
  
 
 
@@ -270,7 +267,8 @@ if(isset($_GET['edit'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-       
+    
+        ?> 
 
 <div class="container mt-4">
     <h2>Update Borrow Details</h2>
