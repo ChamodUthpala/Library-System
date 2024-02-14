@@ -46,11 +46,12 @@ include 'DB_config.php';
         }
 
         button {
-            background-color: lightseagreen;
+            background-color: #4caf50;
             color: #fff;
             padding: 10px;
             border: none;
             cursor: pointer;
+            border-radius: 8px;
         }
 
         table {
