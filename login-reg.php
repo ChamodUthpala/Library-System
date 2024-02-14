@@ -121,14 +121,14 @@ $conn->close();
   <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #4caf50;
+           
             margin: 0;
             padding: 0;
             display: grid;
             align-items: center;
             justify-content: center;
             block-size: 100vh;
-            background-image: url('dashboard.jpg');
+            background-image: url('image1.jfif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
