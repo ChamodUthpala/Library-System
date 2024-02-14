@@ -120,7 +120,11 @@ if (isset($_POST['update'])) {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #4caf50;
+            /* Add background image */
+            background-image: url('image1.jfif');
+            /* Set background image size and position */
+            background-size: cover;
+            background-position: center;
         }
 
         .container {
@@ -213,13 +217,13 @@ if (isset($_POST['update'])) {
         }
 
         button[type="submit"] {
-        background-color: #4caf50;
-        color: #fff;
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-        display: block;
-        margin: 0 auto; 
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
         }
     </style>
 
@@ -301,8 +305,8 @@ if (isset($_POST['update'])) {
                 value="<?php echo isset($_GET['birthday']) ? $_GET['birthday'] : ''; ?>">
 
             <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                required title="Enter a valid email address"
+            <input type="email" id="email" name="email" class="form-control"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required title="Enter a valid email address"
                 value="<?php echo isset($_GET['email']) ? $_GET['email'] : ''; ?>">
 
             <br><br>
