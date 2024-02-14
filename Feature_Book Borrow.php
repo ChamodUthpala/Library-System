@@ -140,6 +140,13 @@ $conn->close();
             margin-top: 5px;
         }
 
+        /* style for login button  */
+        .container2{
+            display : flex;
+            justify-content: center;
+        }
+
+
     </style>
 
 </head>
