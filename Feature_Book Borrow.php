@@ -275,12 +275,15 @@ if(isset($_GET['edit'])) {
 }
 ?>
 
-
-
 <!-- Bootstrap JS and Popper.js  -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+&nbsp;&nbsp;
+
+<div class = "container2"><a href = "dashboard.php" ><button type="reset" class="btn btn-primary btnhome" id ="return" onclick()="return" >Home</button></a></div>
+
 
 </body>
 
