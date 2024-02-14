@@ -67,7 +67,7 @@ $conn->close();
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 500px;
             text-align: center;
         }
 
@@ -105,11 +105,17 @@ $conn->close();
         button:hover {
             background-color: #45a049;
         }
+        hr.new5 {
+  border: 5px solid green;
+  border-radius: 3px;
+}
     </style>
     </head>
 <body>
     <form method="POST" action="login.php" id="login">
-        <h2>User Login</h2>
+        <h1><b>Library Management System</b></h1>
+        <h3>User Login</h3>
+        <hr class="new5">
         <label for="login_username">Username:</label>
         <input type="text" name="login_username" class="form-control" required>
 
