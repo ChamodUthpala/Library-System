@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "library_system";
+$database = "library_test";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -128,6 +128,11 @@ $conn->close();
             align-items: center;
             justify-content: center;
             block-size: 100vh;
+            background-image: url('dashboard.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #000000;  
         }
 
         form {
@@ -138,6 +143,7 @@ $conn->close();
             inline-size: 700px;
             margin-inline-start: 200px;
             margin-left: 110px;
+            
              
 
         }
@@ -463,7 +469,7 @@ $conn->close();
          $servername = "localhost";
          $username = "root";
          $password = "";
-         $database = "library_system";
+         $database = "library_test";
 
          // Create connection
          $conn = new mysqli($servername, $username, $password, $database);

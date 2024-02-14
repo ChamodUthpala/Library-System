@@ -60,6 +60,11 @@ $conn->close();
             align-items: center;
             justify-content: center;
             height: 100vh;
+            background-image: url('image1.jfif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #000000;  
         }
 
         form {
