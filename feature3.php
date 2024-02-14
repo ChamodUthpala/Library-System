@@ -6,9 +6,11 @@ include 'DB_config.php';
 
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Category Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <style>
         body {
@@ -82,6 +84,9 @@ include 'DB_config.php';
             /* Remove borders */
             cursor: pointer;
         }
+        .container2{
+            text-align:center;
+        }
     </style>
 </head>
 
@@ -91,17 +96,20 @@ include 'DB_config.php';
         <h2>Book Category registration</h2>
         <form action="process_form.php" method="post">
             <label for="category_id">Category ID:</label>
-            <input type="text" id="category_id" name="category_id" pattern="C[0-9]{3}" title="Enter a valid Category ID (e.g., C001)" required value="<?php echo isset($_GET['book_category_id']) ? $_GET['book_category_id'] : ''; ?>">
+            <input type="text" id="category_id" class="form-control" name="category_id" pattern="C[0-9]{3}" title="Enter a valid Category ID (e.g., C001)" required value="<?php echo isset($_GET['book_category_id']) ? $_GET['book_category_id'] : ''; ?>">
 
             <label for="category_Name">Category Name:</label>
-            <input type="text" id="category_Name" name="category_Name" required value="<?php echo isset($_GET['category_Name']) ? $_GET['category_Name'] : ''; ?>">
+            <input type="text" id="category_Name" class="form-control" name="category_Name" required value="<?php echo isset($_GET['category_Name']) ? $_GET['category_Name'] : ''; ?>">
 
             <label for="date_modified">Date modified:</label>
-            <input type="date" id="date_modified" name="date_modified" required value="<?php echo isset($_GET['date_modified']) ? $_GET['date_modified'] : ''; ?>">
+            <input type="date" id="date_modified"  class="form-control" name="date_modified" required value="<?php echo isset($_GET['date_modified']) ? $_GET['date_modified'] : ''; ?>">
 
             <br><br>
-
+            
+            <div>
             <button type="submit" name="submit">SUBMIT</button>
+            </div>
+            
         </form>
 
         <br>
