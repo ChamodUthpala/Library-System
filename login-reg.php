@@ -488,8 +488,8 @@ $conn->close();
                  echo "<td>" . $row["email"] . "</td>";
 
                  echo "<td>";
-                 echo "<button class='edit' onclick='editUser(\"$row[user_id]\", \"$row[first_name]\", \"$row[last_name]\", \"$row[username]\", \"$row[password]\",\"$row[email]\")'>Edit</button>&nbsp";
-                 echo "<button class='delete' onclick='deleteUserr(\"" . $row['user_id'] . "\")'>Delete</button>";
+                 echo "<button class='edit' 'btn btn-primary' onclick='editUser(\"$row[user_id]\", \"$row[first_name]\", \"$row[last_name]\", \"$row[username]\", \"$row[password]\",\"$row[email]\")'>Edit</button>&nbsp";
+                 echo "<button class='delete'  'btn btn-danger' onclick='deleteUserr(\"" . $row['user_id'] . "\")'>Delete</button>";
                  echo "</td>";
                  echo "</tr>";
              }
