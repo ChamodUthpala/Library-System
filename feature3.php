@@ -82,6 +82,10 @@ include 'DB_config.php';
             /* Remove borders */
             cursor: pointer;
         }
+        .container3{
+            display : flex;
+            justify-content: center;
+        }
     </style>
 </head>
 
@@ -151,6 +155,9 @@ include 'DB_config.php';
             }
         }
     </script>
+    &nbsp;&nbsp;
+
+    <div class = "container3"><a href = "dashboard.php" ><button type="reset" class="btn btn-primary btnhome" id ="return" onclick()="return" >Home</button></a></div>
 
 </body>
 
