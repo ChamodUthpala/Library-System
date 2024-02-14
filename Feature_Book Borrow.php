@@ -94,10 +94,6 @@ if(isset($_POST['update'])) {
     }
 }
 
-// Close database connection
-$conn->close();
-?>
-
 
 
 
@@ -119,7 +115,7 @@ $conn->close();
     <!-- Add style to form -->
 
     <style>
-        body {
+          body {
             padding: 20px;
             background-color: #4caf50; /* Background color for the entire body */
             color: rgb(17, 17, 17); /* Text color for the entire body */
@@ -131,10 +127,25 @@ $conn->close();
             border-radius: 8px;
         }
 
+
+
+        h2
+        {
+            text-align:center;
+        }
+
         .btn-custom {
             background-color: #4caf50;
             color: white;
+            text-align: center;
         }
+
+
+
+
+        .button-container {
+        text-align: center; 
+    }
 
         /* style for error messages */
         .error-message {
@@ -147,6 +158,7 @@ $conn->close();
             display : flex;
             justify-content: center;
         }
+
 
 
     </style>
@@ -255,7 +267,11 @@ if(isset($_GET['edit'])) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+
+        // Close database connection
+$conn->close();
 ?>
+
 
 <div class="container mt-4">
     <h2>Update Borrow Details</h2>
