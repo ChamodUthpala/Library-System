@@ -118,8 +118,9 @@ $conn->close();
     </head>
 <body>
     <form method="POST" action="login.php" id="login">
-        <h1><b>Library Management System</b></h1>
-        <h3>User Login</h3>
+         
+        <h4><i><b>Welcome to your literary journey</b></i></h4>
+        <h5>User Login</h5>
         <hr class="new5">
         <label for="login_username">Username:</label>
         <input type="text" name="login_username" class="form-control" required>
