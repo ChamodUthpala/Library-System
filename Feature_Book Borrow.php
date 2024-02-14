@@ -108,8 +108,7 @@ if(isset($_POST['update'])) {
     <title>Library Management System</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- Add style to form -->
@@ -202,8 +201,10 @@ if(isset($_POST['update'])) {
             </select>
 
         </div>
+<div class= "button-container">
 
-        <button type="submit" class="btn btn-custom" name="add">Add Borrow Details</button>
+        <button type="submit" class="btn btn-custom" name="add">Add Borrow Details</button> </div>
+
     </form>
 
     <?php if(isset($error_message)) echo "<p class='error-message'>$error_message</p>"; 
@@ -240,9 +241,10 @@ if(isset($_POST['update'])) {
                             <td>".$row["borrower_date_modified"]."</td>
                             <td>
                                 <form method='post'>
+                                <a href='?edit=".$row["book_id"]."' class='btn btn-primary'>Edit</a>
                                     <button type='submit' class='btn btn-danger' name='delete' value='".$row["borrow_id"]."'>Delete</button>
                                 </form>
-                                <a href='?edit=".$row["book_id"]."' class='btn btn-primary'>Edit</a>
+                                
                             </td>
                         </tr>";
                 }
@@ -291,7 +293,9 @@ if(isset($_GET['edit'])) {
             </select>
         </div>
         
-        <button type="submit" class="btn btn-primary" name="update">Update Borrow Details</button>
+        <div class= "button-container">
+
+        <button type="submit" class="btn btn-primary" name="update">Update Borrow Details</button> </div>
     </form>
 </div>
 <?php
