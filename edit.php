@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Redirect back to index.php
-    header('Location: feature3.php.php');
+    header('Location: feature3.php');
     exit;
 }
 
