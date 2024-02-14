@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Update existing record
         $updateQuery = "UPDATE bookcategory SET category_Name = '$category_Name', date_modified = '$date_modified' WHERE category_id = '$category_id'";
         if ($conn->query($updateQuery) === TRUE) {
-            include 'index.php';
+            include 'feature3.php';
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Insert new record
         $insertQuery = "INSERT INTO bookcategory (category_id, category_Name, date_modified) VALUES ('$category_id', '$category_Name', '$date_modified')";
         if ($conn->query($insertQuery) === TRUE) {
-            include 'index.php';
+            include 'feature3.php';
         } else {
             echo "Error: " . $insertQuery . "<br>" . $conn->error;
         }
