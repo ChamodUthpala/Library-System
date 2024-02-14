@@ -239,6 +239,11 @@ $conn->close();
             justify-content: center;
         }
 
+        hr.new5 {
+  border: 5px solid green;
+  border-radius: 3px;
+        }
+
        
     </style>
 
@@ -246,10 +251,10 @@ $conn->close();
 
 <body>
     <form id="staffForm" action="login-reg.php" method="post">
-        <h1 style="text-align:center;">UOK LIBRARY MANAGEMENT SYSTEM</h1>
+        <h1 style="text-align:center;"><b>UOK LIBRARY MANAGEMENT SYSTEM</b></h1>
          
-        <hr>
-        <h2 style="text-align:center;">Login and User Registration</h2>
+        <hr class="new5">
+        <h3 style="text-align:center;">Login and User Registration</h3>
          
         <label for="user_id">user_id:</label>
         <input type="text" name="user_id" id="user_id" class="form-control" required>
