@@ -147,7 +147,7 @@ include 'DB_config.php';
         function deleteBookCategory(category_id) {
             var confirmDelete = confirm("Are you sure you want to delete this record?");
             if (confirmDelete) {
-                window.location.href = "delete_category.php?category_id=" + category_id;
+                window.location.href = "delet.php?category_id=" + category_id;
             }
         }
     </script>
