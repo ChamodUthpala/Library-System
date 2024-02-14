@@ -54,11 +54,11 @@
 
         <div class="btn-container">
             <button class="btn btn-primary btn-lg" onclick="window.location.href='login-reg.php'">Login and User Registration</button></br>
-            <button class="btn btn-primary btn-lg" onclick="window.location.href='book_registration.php'">Book Registration</button></br>
-            <button class="btn btn-primary btn-lg" onclick="window.location.href='book_category_registration.php'">Book Category Registration</button></br>
-            <button class="btn btn-primary btn-lg" onclick="window.location.href='library_member_registration.php'">Library Member Registration</button></br>
-            <button class="btn btn-primary btn-lg" onclick="window.location.href='book_borrow_details.php'">Book Borrow Details</button></br>
-            <button class="btn btn-primary btn-lg" onclick="window.location.href='feature6.php'">Assign Fine for a User</button>
+            <button class="btn btn-primary btn-lg" onclick="window.location.href='BooK_registration.php'">Book Registration</button></br>
+            <button class="btn btn-primary btn-lg" onclick="window.location.href='feature3.php'">Book Category Registration</button></br>
+            <button class="btn btn-primary btn-lg" onclick="window.location.href='member_reg.php'">Library Member Registration</button></br>
+            <button class="btn btn-primary btn-lg" onclick="window.location.href='Feature_Book Borrow.php'">Book Borrow Details</button></br>
+            <button class="btn btn-primary btn-lg" onclick="window.location.href='feature_6.php'">Assign Fine for a User</button>
         </div>
     </div>
 </div>
