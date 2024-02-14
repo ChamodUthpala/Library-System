@@ -129,6 +129,9 @@ $conn->close();
         <input type="password" name="login_password" class="form-control" required minlength="8">
 
         <button type="submit" name="login">Login</button>
+        <br>
+        <br>
+       <a href="#"> <h5 style="text-align:right; font-size:14px;">forgot password?</h5></a>
     </form>
 </body>
 </html>
