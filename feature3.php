@@ -85,12 +85,15 @@ include 'DB_config.php';
             /* Remove borders */
             cursor: pointer;
         }
+
         .container2{
             text-align:center;
         }
         h2{
             text-align:center;
-        }
+      }
+
+        
     </style>
 </head>
 
@@ -163,9 +166,9 @@ include 'DB_config.php';
             }
         }
     </script>
+   
+
+    <div class = "container2"><a href = "dashboard.php" ><button type="reset" class="btn btn-primary btnhome" id ="return" onclick()="return" >Home</button></a></div>
 
 </body>
-
-<div class = "container2"><a href = "dashboard.php" ><button type="reset" class="btn btn-primary btnhome" id ="return" onclick()="return" >Home</button></a></div>
-
 </html>
