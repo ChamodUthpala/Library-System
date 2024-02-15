@@ -20,9 +20,9 @@
             echo "<td>" . $row["category_Name"] . "</td>";
             echo "<td>" . $row["date_modified"] . "</td>";
             echo "<td>";
-            echo "<a href='edit.php?edit_category_id=" . $row['category_id'] . "'> <button>  EDIT </button></a>";
+            echo "<a href='edit.php?edit_category_id=" . $row['category_id'] . "'> <button class='btn btn-primary'>  EDIT </button></a>";
             echo "  ";
-            echo "<a href='process_delete.php?delete_category_id=" . $row['category_id'] . "'><button>  DELET </button></a>";
+            echo "<a href='delet.php?delete_category_id=" . $row['category_id'] . "'><button class='btn btn-danger'>  DELETE </button></a>";
             echo "</td>";
             echo "</td>";
             echo "</tr>";

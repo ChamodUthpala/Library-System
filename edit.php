@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Redirect back to index.php
-    header('Location: feature3.php');
+    header('Location: feature_3.php');
     exit;
 }
 
@@ -104,6 +104,8 @@ $conn->close();
             padding: 10px;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
+
         }
 
         table {
@@ -165,7 +167,6 @@ $conn->close();
 
             <br><br>
             <div class="container1">
-
             <button type="submit" name="submit">Update</button>
             </div>
         </form>
