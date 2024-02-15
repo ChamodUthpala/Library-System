@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Redirect back to index.php
-    header('Location: feature3.php');
+    header('Location: feature_3.php');
     exit;
 }
 
@@ -61,14 +61,16 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+    
 
-<head>
+<head>]
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: url('image1.jfif');
         }
 
         .container {
@@ -77,6 +79,7 @@ $conn->close();
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
         form {
@@ -101,6 +104,8 @@ $conn->close();
             padding: 10px;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
+
         }
 
         table {
@@ -135,6 +140,13 @@ $conn->close();
             /* Remove borders */
             cursor: pointer;
         }
+        h2{
+            text-align:center;
+        }
+        .container1 {
+            text-align: center;
+    
+        }
     </style>
 </head>
 
@@ -142,20 +154,21 @@ $conn->close();
     <div class="container">
         <h2>Edit Book Category</h2>
         <form action="" method="post">
-            <input type="hidden" name="category_id" value="<?php echo $category_id; ?>">
+            <input type="hidden"  name="category_id" value="<?php echo $category_id; ?>">
 
             <label for="new_category_id">New Category ID:</label>
-            <input type="text" id="new_category_id" name="new_category_id" pattern="C[0-9]{3}" title="Enter a valid Category ID (e.g., C001)" required value="<?php echo $category_id; ?>">
+            <input type="text" class="form-control" id="new_category_id" name="new_category_id" pattern="C[0-9]{3}" title="Enter a valid Category ID (e.g., C001)" required value="<?php echo $category_id; ?>">
 
             <label for="category_Name">Category Name:</label>
-            <input type="text" id="category_Name" name="category_Name" required value="<?php echo $category_Name; ?>">
+            <input type="text" class="form-control" id="category_Name" name="category_Name" required value="<?php echo $category_Name; ?>">
 
             <label for="date_modified">Date modified:</label>
-            <input type="date" id="date_modified" name="date_modified" required value="<?php echo $date_modified; ?>">
+            <input type="date" class="form-control" id="date_modified" name="date_modified" required value="<?php echo $date_modified; ?>">
 
             <br><br>
-
+            <div class="container1">
             <button type="submit" name="submit">Update</button>
+            </div>
         </form>
     </div>
 </body>
