@@ -51,7 +51,7 @@ include 'DB_config.php';
             padding: 10px;
             border: none;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 4px;
         }
 
         table {
@@ -60,8 +60,7 @@ include 'DB_config.php';
             margin-block-start: 20px;
         }
 
-        th,
-        td {
+        th,td {
             border: 1px solid #ddd;
             padding: 12px;
             text-align: start;
@@ -166,5 +165,7 @@ include 'DB_config.php';
     </script>
 
 </body>
+
+<div class = "container2"><a href = "dashboard.php" ><button type="reset" class="btn btn-primary btnhome" id ="return" onclick()="return" >Home</button></a></div>
 
 </html>
